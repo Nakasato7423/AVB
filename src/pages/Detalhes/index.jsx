@@ -5,7 +5,7 @@ import { useFavoritos } from "../../FavoritosContext";
 import { getTypeColor } from "../../utils.js";
 
 export default function Detalhes() {
-  const { nome } = useParams();
+  const { nome } = useParams(); // continua igual
   const { isFavorito, toggleFavorito } = useFavoritos();
   const [pokemon, setPokemon] = useState(null);
   const [loading, setLoading] = useState(true);

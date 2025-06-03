@@ -1,4 +1,3 @@
-// App.jsx
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Detalhes from './pages/Detalhes';
@@ -19,7 +18,7 @@ export default function App() {
         <main className="container mx-auto px-4 py-6">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/detalhes/:id" element={<Detalhes />} />
+            <Route path="/detalhes/:nome" element={<Detalhes />} />
             <Route path="/favoritos" element={<Favoritos />} />
           </Routes>
         </main>

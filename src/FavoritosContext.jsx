@@ -1,31 +1,30 @@
-import { createContext, useContext, useEffect, useState } from "react";
+// FavoritosContext.jsx
+import { createContext, useContext, useState, useEffect } from "react";
 
 const FavoritosContext = createContext();
 
 export function FavoritosProvider({ children }) {
   const [favoritos, setFavoritos] = useState(() => {
-    const armazenado = localStorage.getItem("favoritos");
-    return armazenado ? JSON.parse(armazenado) : [];
+    const stored = localStorage.getItem("favoritos");
+    return stored ? JSON.parse(stored) : [];
   });
 
   useEffect(() => {
     localStorage.setItem("favoritos", JSON.stringify(favoritos));
   }, [favoritos]);
 
-  function toggleFavorito(nome) {
+  const toggleFavorito = (name) => {
     setFavoritos((prev) =>
-      prev.includes(nome)
-        ? prev.filter((f) => f !== nome)
-        : [...prev, nome]
+      prev.includes(name) ? prev.filter((f) => f !== name) : [...prev, name]
     );
-  }
+  };
 
-  function isFavorito(nome) {
-    return favoritos.includes(nome);
-  }
+  const isFavorito = (name) => favoritos.includes(name);
 
   return (
-    <FavoritosContext.Provider value={{ favoritos, toggleFavorito, isFavorito }}>
+    <FavoritosContext.Provider
+      value={{ favoritos, toggleFavorito, isFavorito }}
+    >
       {children}
     </FavoritosContext.Provider>
   );
