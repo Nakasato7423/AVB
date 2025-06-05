@@ -15,13 +15,16 @@ export default function App() {
           </nav>
         </header>
 
-        <main className="container mx-auto px-4 py-6">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/detalhes/:nome" element={<Detalhes />} />
-            <Route path="/favoritos" element={<Favoritos />} />
-          </Routes>
-        </main>
+        {/* Main atualizado para ocupar a tela inteira e centralizar o conteúdo */}
+<main className="flex justify-center w-full">
+  <div className="w-full max-w-7xl px-4 py-6">
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/detalhes/:nome" element={<Detalhes />} />
+      <Route path="/favoritos" element={<Favoritos />} />
+    </Routes>
+  </div>
+</main> 
 
         <footer className="bg-white text-center text-sm p-4 shadow-inner mt-6">
           <p className="text-gray-500">&copy; 2025 PokéApp. Todos os direitos reservados.</p>

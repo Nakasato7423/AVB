@@ -29,7 +29,7 @@ export default function Favoritos() {
     return <p className="text-center text-gray-500">Nenhum favorito ainda!</p>;
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 justify-center">
       {pokemons.map((p) => (
         <PokemonCard key={p.name} {...p} />
       ))}

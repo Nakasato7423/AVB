@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useFavoritos } from "../../FavoritosContext";
 import { getTypeColor } from "../../utils.js";
+import LoadingSpinner from '../../components/LoadingSpinner';
+import ErrorPage from '../../components/ErrorPage';
 
 export default function Detalhes() {
   const { nome } = useParams(); // continua igual
@@ -85,27 +87,4 @@ export default function Detalhes() {
   );
 }
 
-// Componentes auxiliares
-function LoadingSpinner() {
-  return (
-    <div className="min-h-screen flex justify-center items-center">
-      <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
-    </div>
-  );
-}
 
-function ErrorPage() {
-  return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-blue-50 py-10 px-4">
-      <div className="bg-white p-8 rounded-xl shadow-lg max-w-md text-center">
-        <h2 className="text-3xl font-bold text-red-500 mb-4">Pokémon não encontrado!</h2>
-        <Link
-          to="/"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full transition-colors"
-        >
-          Voltar para a Pokédex
-        </Link>
-      </div>
-    </div>
-  );
-}
